@@ -3,6 +3,7 @@
 import React from "react";
 import { Phone, MapPin, ChevronDown, Plus, CalendarDays } from "lucide-react";
 import Header from "../../layout/Header";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -45,10 +46,11 @@ export default function HeroSection() {
             >
               {/* Image */}
               <div className="absolute inset-0">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2613&auto=format&fit=crop"
                   alt="London Street"
                   className="w-full h-full object-cover opacity-80"
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent/40 z-10" />
               </div>
