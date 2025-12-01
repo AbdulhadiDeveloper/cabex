@@ -18,7 +18,7 @@ const Button = ({ variant = "primary", className = "", children, ...props }) => 
   // 2. Specific styles for each variant
   const variants = {
     primary: 
-      "bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white shadow-lg hover:shadow-red-900/40 border border-transparent",
+      "bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white hover:shadow-red-900/40 border border-transparent",
     outline: 
       "bg-white border border-[#360505] text-[#750a0a] hover:bg-gray-50 shadow-sm hover:shadow-md"
   };

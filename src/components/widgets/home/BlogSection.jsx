@@ -54,7 +54,7 @@ export default function BlogSection() {
         {/* 2. HEADER */}
         <div className="mb-20 text-center lg:text-left">
           <h2 className="text-4xl lg:text-[4rem] font-bold text-[#1A1A1A] tracking-tight leading-none">
-            Stay Informed With <span className="text-[#5e0808]">Our Blog</span>
+            Stay Informed With <span className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] bg-clip-text text-transparent">Our Blog</span>
           </h2>
         </div>
 

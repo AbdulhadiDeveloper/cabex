@@ -6,8 +6,8 @@ import Header from "../../layout/Header";
 
 export default function HeroSection() {
   return (
-    <main className="min-h-screen p-0 md:p-4 lg:p-8 flex items-center justify-center font-sans">
-      <div className="relative w-full max-w-[1400px] mx-auto">
+    <main className="min-h-screen p-0 md:p-4 lg:p-8 flex items-center justify-center font-sans ">
+      <div className="relative w-full max-w-[1400px] mx-auto ">
         
         {/* =========================================
             1. SVG DEFINITION (Hidden helper for shape)
@@ -22,7 +22,7 @@ export default function HeroSection() {
             On Desktop (lg), height is fixed/compact. 
             On Mobile, it grows with content.
         */}
-        <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 min-h-[1000px] lg:h-[1000px]">
+        <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 min-h-[1000px] lg:h-[1000px] rounded-[50px] overflow-hidden ">
 
           {/* =========================================
               3. BACKGROUND LAYER (The Clipped Image)

@@ -11,7 +11,7 @@ const fleetData = [
     name: "Premium People Carrier",
     description: "At Airport Driven, We Stock Exceptional Vehicles. We Are Connoisseurs Of Outstanding Driving Experiences. Our Vehicle Range Includes Executive, Premium Saloons And Luxury Cars From The World's Most Exclusive Car Manufacturers. These Cars Look And Feel Opulent, Perform Superbly And Are Available To You At A Surprisingly Affordable Price. Why Not Escape Your Routine In A Vehicle That's Truly Out Of The Ordinary?",
     // Using a transparent PNG of a black luxury car side view
-    image: "/images/car2.jpeg", 
+    image: "/images/jeep.png", 
     specs: {
       people: 4,
       briefcase: 2,

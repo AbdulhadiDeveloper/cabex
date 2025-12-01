@@ -30,7 +30,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="bg-[#F5F5F5] py-20 px-4 md:px-8 font-sans border-t border-white/50">
+    <section className=" py-20 px-4 md:px-8 font-sans">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Main Grid: Left (Text/Timeline) - Right (Video/Image) */}

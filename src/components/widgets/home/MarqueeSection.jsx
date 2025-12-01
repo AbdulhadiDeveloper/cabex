@@ -32,7 +32,7 @@ export default function MarqueeSection() {
           - Scaled up (1.05) to ensure edges don't show white gaps due to rotation
       */}
       <div 
-        className="bg-[#900c0c] py-4 shadow-xl relative left-[-2%] w-[105%]"
+        className="bg-[#9F0507] py-4 shadow-xl relative left-[-2%] w-[105%]"
         style={{ transform: "rotate(-1.82deg)" }}
       >
         

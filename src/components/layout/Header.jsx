@@ -37,7 +37,7 @@ export default function Header() {
       {/* Logo */}
       <div className="text-white text-3xl font-bold tracking-tighter leading-none flex flex-col pl-4">
         <Image
-          src="/images/logo.png"
+          src="/images/logo2.png"
           width={150}
           height={150}
           />
