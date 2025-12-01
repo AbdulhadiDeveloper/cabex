@@ -47,7 +47,7 @@ export default function HeroSection() {
               {/* Image */}
               <div className="absolute inset-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2613&auto=format&fit=crop"
+                  src="/images/london.jpg"
                   alt="London Street"
                   className="w-full h-full object-cover opacity-80"
                   fill
