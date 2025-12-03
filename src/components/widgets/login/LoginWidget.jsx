@@ -17,6 +17,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function LoginWidget() {
   return (
     <div className="bg-white rounded-[30px] p-6 lg:p-10 w-full shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 relative z-20">
@@ -99,7 +100,7 @@ export default function LoginWidget() {
                     src="/images/loginSign.png"
                     width={20}
                     height={20}
-                    alt="Login Icon"
+                    alt="Login-Icon"
                     />
                     </div>
                 

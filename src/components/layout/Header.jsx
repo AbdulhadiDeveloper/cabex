@@ -41,6 +41,7 @@ export default function Header() {
           src="/images/logo2.png"
           width={150}
           height={150}
+          alt="logo"
           />
       </div>
       </Link>
