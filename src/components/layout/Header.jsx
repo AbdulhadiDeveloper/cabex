@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 // Import the custom Button component
-import Button from "../shared/ui/Button";
+import Button from "@/components/shared/ui/Button.jsx";
 import Image from "next/image";
 
 export default function Header() {
@@ -21,7 +21,7 @@ export default function Header() {
       hasDropdown: true,
       // Dropdown items based on your image
       submenu: [
-        { name: "Airport Transfers", href: "/services/airport-transfers" },
+        { name: "Airport Transfers", href: "/airportTransfers" },
         { name: "Railway Transfers", href: "/services/railway-transfers" },
         { name: "Cruise Transfers", href: "/services/cruise-transfers" },
         { name: "Special Offers", href: "/services/special-offers" },
@@ -35,6 +35,7 @@ export default function Header() {
   return (
     <nav className="relative z-50 flex justify-between items-center px-10 py-8">
       {/* Logo */}
+      <Link href="/">
       <div className="text-white text-3xl font-bold tracking-tighter leading-none flex flex-col pl-4">
         <Image
           src="/images/logo2.png"
@@ -42,6 +43,7 @@ export default function Header() {
           height={150}
           />
       </div>
+      </Link>
 
       {/* Glass Navbar */}
       <div className="hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-8 py-3 text-sm text-gray-200 gap-4 shadow-2xl relative">
@@ -96,12 +98,13 @@ export default function Header() {
       </div>
 
       {/* Login Button (Using the reusable component) */}
+      <Link href="/login">
       <Button 
         variant="primary" 
-        onClick={() => console.log("Login Clicked")}
       >
         Log In
       </Button>
+      </Link>
       
     </nav>
   );
