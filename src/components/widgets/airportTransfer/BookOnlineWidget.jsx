@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { User, Briefcase, CalendarDays, Plus, MapPin, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import JouneySummary from "@/components/shared/ui/JouneySummary";
 
 // Mock Data for Cars
 const cars = [
@@ -19,86 +20,7 @@ export default function BookOnlineWidget() {
       {/* =========================================
           LEFT SIDE: BOOKING FORM (5 Columns)
          ========================================= */}
-      <div className="lg:col-span-5 flex flex-col">
-        
-        {/* Header Icon */}
-        <div className="flex items-center gap-3 mb-8">
-            <div className="relative">
-                <CalendarDays className="text-[#9C0E0F] w-12 h-12" strokeWidth={1.5} />
-                <div className="absolute -right-1 -bottom-1 bg-[##9C0E0F] rounded-full p-0.5 border-2 border-white">
-                    <Plus className="text-white w-3 h-3" />
-                </div>
-            </div>
-            <div className="leading-[0.9]">
-                <span className="block text-3xl font-black text-[#1a1a1a]">BOOK</span>
-                <span className="block text-3xl font-black text-[#9C0E0F]">ONLINE</span>
-            </div>
-        </div>
-
-        <h3 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-6">First Journey</h3>
-
-        {/* INPUTS CONTAINER */}
-        <div className="relative flex flex-col gap-8 mb-8">
-            {/* Timeline Line */}
-            <div className="absolute right-[6px] top-3 bottom-3 w-[2px] bg-gray-300 rounded-full"></div>
-
-            {/* Pick Up */}
-            <div className="relative">
-                <label className="text-[10px] font-bold text-gray-500 mb-1 block">Pick Up</label>
-                <div className="border-b border-gray-400 pb-2 flex justify-between items-center">
-                    <span className="text-sm font-medium text-gray-700">Heathrow Airport, Terminal 2</span>
-                    {/* Timeline Dot */}
-<div className="absolute -right-[1px] top-0 w-4 h-4 bg-white border-[3px] border-[#bf1515] rounded-full z-10">
-                        
-                    </div>                </div>
-            </div>
-
-            {/* Via */}
-            <div className="relative">
-                <label className="text-[10px] font-bold text-gray-400 mb-1 block">Via (Optional)</label>
-                <div className="border-b border-gray-400 pb-2 flex justify-between items-center">
-                    <span className="text-sm font-medium text-gray-400">Add Stop</span>
-                    <ChevronDown size={16} className="text-gray-400" />
-                    {/* Timeline Plus */}
-                    <div className="absolute -right-[3px] top-4 w-5 h-5 bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white rounded-full flex items-center justify-center z-10 text-[12px]">
-                        +
-                    </div>
-                </div>
-            </div>
-
-            {/* Drop Off */}
-            <div className="relative">
-                <label className="text-[10px] font-bold text-gray-500 mb-1 block">Drop Off</label>
-                <div className="border-b border-gray-400 pb-2 flex justify-between items-center">
-                    <span className="text-sm font-medium text-gray-700">The University of Bath, BA2 7AY</span>
-                    {/* Timeline Dot */}
-                    <div className="absolute -right-[1px] top-6 w-4 h-4 bg-white border-[3px] border-[#bf1515] rounded-full z-10">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {/* MAP IMAGE */}
-        <div className="w-full h-[200px] relative rounded-xl overflow-hidden border border-gray-200 shadow-inner">
-            <Image 
-                src="/images/airport-transfer/map.png" // You need to save the map screenshot
-                alt="Route Map"
-                fill
-                className="object-cover"
-            />
-        </div>
-        
-        {/* Edit Route Button */}
-        <div className="mt-6">
-             <button className="w-full bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white py-4 rounded-full font-bold text-xs tracking-widest shadow-xl flex items-center justify-center gap-2 hover:bg-[#750a0a] transition-all">
-                EDIT ROUTE
-                <span className="text-lg ">↩</span>
-             </button>
-        </div>
-
-      </div>
-
+        <JouneySummary />
       {/* =========================================
           RIGHT SIDE: CAR SELECTION (7 Columns)
          ========================================= */}

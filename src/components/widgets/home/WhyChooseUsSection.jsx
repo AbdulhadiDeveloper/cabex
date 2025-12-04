@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { ShieldCheck, CreditCard, CarFront, AlarmClock } from "lucide-react";
 

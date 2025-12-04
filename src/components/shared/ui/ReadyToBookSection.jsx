@@ -1,10 +1,11 @@
-"use client";
 
 import React from "react";
 import Image from "next/image";
 import { Phone, MapPin } from "lucide-react";
 // Importing the reusable Button component
 import Button from "@/components/shared/ui/Button";
+import Link from "next/link";
+
 
 export default function ReadyToBookSection() {
   return (
@@ -71,13 +72,16 @@ export default function ReadyToBookSection() {
 
             {/* 3. CTA Button (Using your Reusable Component) */}
             <div>
+                <Link
+                href="/airportTransfers"
+                >
                 <Button 
                     variant="primary" 
                     className="px-10 py-4 text-xs font-bold rounded-[30px] shadow-[0_10px_30px_rgba(144,12,12,0.4)]"
-                    src="/airpoortTransfer" // Link to the booking page
                 >
                     INSTANT QUOTE
                 </Button>
+                </Link>
             </div>
 
         </div>

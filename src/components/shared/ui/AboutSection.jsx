@@ -1,4 +1,4 @@
-"use client";
+
 
 import React from "react";
 // We need a specific icon for the steering wheel. 

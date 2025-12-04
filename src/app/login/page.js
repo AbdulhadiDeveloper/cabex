@@ -7,7 +7,7 @@ import LoginWidget from "@/components/widgets/login/LoginWidget.jsx";
 export default function LoginPage() {
   return (
     <HeroBackground>
-        <div className="w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-12">
+        <div className="w-full min-h-screen flex flex-col justify-center items-center pt-6 pb-12">
             <LoginWidget />
         </div>
     </HeroBackground>
