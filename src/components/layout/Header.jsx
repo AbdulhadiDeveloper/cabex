@@ -29,7 +29,7 @@ export default function Header() {
       ]
     },
     { name: "Blogs", href: "/blogs" },
-    { name: "Help", href: "/help" },
+    { name: "Help", href: "/FAQs" },
   ];
 
   return (

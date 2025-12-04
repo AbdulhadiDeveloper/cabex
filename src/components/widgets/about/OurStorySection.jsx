@@ -41,7 +41,7 @@ export default function OurStorySection() {
 
                 {/* Paragraph */}
                 <p className="text-gray-300 text-sm lg:text-[15px] font-normal leading-relaxed max-w-lg tracking-wide">
-                    We Started Airport Driven To Fill The Need For Dependable And Inclusive Airport Transportation. Over The Years, We've Grown Into A Trusted Name, Serving Individual Travelers, Families, And Corporate Clients With Unmatched Professionalism.
+                    We Started Airport Driven To Fill The Need For Dependable And Inclusive Airport Transportation. Over The Years, We&#39;ve Grown Into A Trusted Name, Serving Individual Travelers, Families, And Corporate Clients With Unmatched Professionalism.
                 </p>
 
             </div>

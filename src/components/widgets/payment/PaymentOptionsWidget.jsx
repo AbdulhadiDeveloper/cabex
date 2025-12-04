@@ -112,7 +112,7 @@ export default function PaymentPageWidget() {
                     After your payment is successfully completed, you will receive an email confirming your journey and payment.
                 </p>
                 <p className="text-[10px] text-gray-600 leading-relaxed font-medium">
-                    Once a driver and vehicle have been assigned for your journey, you will be provided with further information, including pickup instructions and the driver's contact details.
+                    Once a driver and vehicle have been assigned for your journey, you will be provided with further information, including pickup instructions and the driver&#39;s contact details.
                 </p>
                 <p className="text-[10px] text-gray-600 leading-relaxed font-medium">
                     A sales receipt will be sent to you via email within 24 hours of the payment being processed.

@@ -30,7 +30,7 @@ export default function DefinitionSection() {
                     <span className="mt-2 w-1 h-1 rounded-full bg-gray-500 shrink-0" />
                     
                     <p className="text-gray-600 text-xs lg:text-[13px] leading-relaxed font-medium max-w-md">
-                        <span className="text-gray-800 font-bold">Airport Driven:</span> Refers to "we," "us," or "the company," with a registered office at 24 Burnham Gardens, TW4 6LR.
+                        <span className="text-gray-800 font-bold">Airport Driven:</span> Refers to &qout;we&ldquo;&qout; &qout;us&ldquo;&qout; or &qout;the company&ldquo;&qout; with a registered office at 24 Burnham Gardens, TW4 6LR.
                     </p>
                 </li>
 

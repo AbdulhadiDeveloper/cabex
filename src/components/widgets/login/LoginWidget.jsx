@@ -43,7 +43,7 @@ export default function LoginWidget() {
 
         {/* Description Text */}
         <p className="text-[11px] text-gray-600 font-medium leading-relaxed mb-8">
-            If you have booked before, an account will have been created for you. If you are unsure of this account's credentials select <span className="font-bold text-black">Reset Password</span> below.
+            If you have booked before, an account will have been created for you. If you are unsure of this account&apos;s credentials select <span className="font-bold text-black">Reset Password</span> below.
         </p>
 
         <h3 className="text-xs font-bold text-gray-800 mb-2">Existing Customer</h3>

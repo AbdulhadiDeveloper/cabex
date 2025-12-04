@@ -16,14 +16,14 @@ export default function HeroBackground({ children }) {
         {/* 1. DARK STREET IMAGE (Left Side Base) */}
         <div className="absolute inset-0 bg-black">
             <Image
-                src="/images/london.jpg" // Make sure this exists
+                src="/images/heroBg.jpg" // Make sure this exists
                 alt="Background"
                 fill
                 className="object-cover opacity-80"
                 priority
             />
             {/* Dark Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent/30 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/95 to-transparent/30 z-10" />
         </div>
 
        {/* 2. RED SLASH IMAGE (Right Side) */}

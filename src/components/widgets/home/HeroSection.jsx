@@ -44,7 +44,7 @@ export default function HeroSection() {
               {/* Image */}
               <div className="absolute inset-0">
                 <Image
-                  src="/images/london.jpg"
+                  src="/images/heroBg.jpg"
                   alt="London Street"
                   className="w-full h-full object-cover opacity-80"
                   fill
