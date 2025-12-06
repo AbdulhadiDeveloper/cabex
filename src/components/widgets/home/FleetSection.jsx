@@ -45,7 +45,7 @@ export default function FleetSection() {
   const currentCar = fleetData[currentIndex];
 
   return (
-    <section className=" py-20 px-4 md:px-8 font-sans border-t border-white/20">
+    <section className=" my-6 lg:my-10 px-4 md:px-8 font-sans border-t border-white/20">
       <div className="max-w-[1400px] mx-auto">
         
         {/* 1. Header & Description */}

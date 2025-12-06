@@ -10,7 +10,7 @@ const stats = [
 
 export default function BabySeatSection() {
   return (
-    <section className="relative w-full h-[600px] lg:h-[550px] bg-[#0d0d0d] overflow-hidden font-sans flex flex-col lg:block">
+    <section className="py-6 lg:py-10 relative w-full h-[600px] lg:h-[550px] bg-[#0d0d0d] overflow-hidden font-sans flex flex-col lg:block">
       
   {/* 1. YOUR BACKGROUND IMAGE */}
   <Image 

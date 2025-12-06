@@ -16,6 +16,24 @@ export default function Header() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { 
+      name: "Airports", 
+      href: "/services", 
+      hasDropdown: true,
+      // Dropdown items based on your image
+      submenu: [
+        { name: "Heathrow Airport Taxi", href: "/airportTransfers" },
+        { name: "Gatwick Airport Taxi", href: "/services/railway-transfers" },
+        { name: "Luton Airport Taxi", href: "/services/cruise-transfers" },
+        { name: "London City Airport Taxi", href: "/services/special-offers" },
+        {name: "Stansted Airport Taxi Taxi" , href : ""},
+        {name: "Manchester Airport Taxi" , href : ""},
+        {name: "Edinburgh Airport Taxi", href : ""},
+        {name: "Glasgow Airport Taxi", href: ""},
+        {name: "Birmingham Airport Taxi" , href: ""},
+        {name: "Liverpool Airport Taxi", href: ""}
+      ]
+    },
+    { 
       name: "Services", 
       href: "/services", 
       hasDropdown: true,
@@ -24,30 +42,30 @@ export default function Header() {
         { name: "Airport Transfers", href: "/airportTransfers" },
         { name: "Railway Transfers", href: "/services/railway-transfers" },
         { name: "Cruise Transfers", href: "/services/cruise-transfers" },
-        { name: "Special Offers", href: "/services/special-offers" },
-        { name: "Cover Area", href: "/services/cover-area" },
       ]
     },
-    { name: "Blogs", href: "/blogs" },
-    { name: "Help", href: "/FAQs" },
+    { name: "Cover Areas", href: "/coverareas" },
+    { name: "Special Offers", href: "/special-offers" },
+    { name: "Contact", href: "/contact" },
+
   ];
 
   return (
-    <nav className="relative z-50 flex justify-between items-center px-10 py-8">
+    <nav className="relative z-50 flex justify-between items-center  ">
       {/* Logo */}
       <Link href="/">
-      <div className="text-white text-3xl font-bold tracking-tighter leading-none flex flex-col pl-4">
+      <div className="text-white text-3xl font-bold tracking-tighter leading-none flex flex-col pb-2 pl-2">
         <Image
-          src="/images/logo2.png"
-          width={150}
-          height={150}
+          src="/images/logo.png"
+          width={100}
+          height={100}
           alt="logo"
           />
       </div>
       </Link>
 
       {/* Glass Navbar */}
-      <div className="hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-8 py-3 text-sm text-gray-200 gap-4 shadow-2xl relative">
+      <div className="hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-8 py-3 mt-3 text-sm text-gray-200 gap-4 shadow-2xl relative">
         {navItems.map((item) => {
           // Check if link is active
           const currentPath = pathname || "";
@@ -61,7 +79,7 @@ export default function Header() {
               <Link
                 href={item.href}
                 className={`
-                  flex items-center gap-1 px-6 py-2 rounded-full font-medium transition-all duration-300 relative z-10
+                  flex items-center gap-1  px-6 py-2 rounded-full font-medium transition-all duration-300 relative z-10
                   ${isActive 
                     ? "bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white shadow-md" 
                     : "hover:text-white text-gray-200 hover:bg-white/5"}

@@ -43,7 +43,7 @@ const features = [
 
 export default function FeaturesListSection() {
   return (
-    <section className="bg-[#EBEBEB] py-20 px-4 md:px-8 font-sans">
+    <section className="bg-[#EBEBEB] my-6 lg:my-10 px-4 md:px-8 font-sans">
       <div className="max-w-[1400px] mx-auto">
         
         {/* 1. Header Section */}

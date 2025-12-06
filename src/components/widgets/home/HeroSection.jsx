@@ -1,166 +1,161 @@
 "use client";
 
-import React from "react";
-import { Phone, MapPin, ChevronDown, Plus, CalendarDays } from "lucide-react";
-import Header from "../../layout/Header";
+import React, { useState } from "react";
+import { Phone, MapPin, ChevronDown, Plus, CalendarDays, Loader2 } from "lucide-react";
+import Header from "../../layout/Header"; 
 import Image from "next/image";
 import Link from 'next/link';
 
 export default function HeroSection() {
+  const [formData, setFormData] = useState({
+    pickup: "",
+    via: "",
+    dropoff: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+        alert("Quote Request Sent!");
+        setLoading(false);
+    }, 1500);
+  };
+
+  // =========================================================================
+  // PIXEL PERFECT FULLY ROUNDED PATH
+  // Based on Polygon: 0 7%, 10% 7%, 10% 0, 90% 0, 90% 7%, 100% 7%, 100% 100%, 17% 100%, 17% 85%, 0 85%
+  //
+  // LOGIC: Every corner (Inner and Outer) uses a Quadratic Bezier (Q) for roundness.
+  // 1. Start Left Edge (Above bottom cutout)
+  // 2. Curve RIGHT (Inner) then UP (Inner) to form the "Step Up" to the Tab.
+  // 3. Curve RIGHT (Outer) to form Top-Left Tab corner.
+  // 4. Line across Top.
+  // 5. Curve DOWN (Outer) to form Top-Right Tab corner.
+  // 6. Curve RIGHT (Inner) to form the "Step Down" from the Tab.
+  // 7. Curve DOWN (Outer) for the far Right edge.
+  // 8. Curve LEFT for Bottom-Right corner.
+  // 9. Curve UP (Inner) then LEFT (Outer) for Bottom-Left Cutout.
+  // 10. Curve UP (Outer) to close loop.
+  // =========================================================================
+  const HERO_SHAPE_PATH = `
+    M 0,0.85
+     L 0,0.11 Q 0,0.08 0.03,0.08 
+    L 0.07,0.08 Q 0.10,0.08 0.10,0.05 
+    L 0.10,0.03 Q 0.10,0 0.13,0 
+    L 0.87,0 Q 0.90,0 0.90,0.03 
+    L 0.90,0.05 Q 0.90,0.08 0.93,0.08 
+    L 0.97,0.08 Q 1,0.08 1,0.11 
+    L 1,0.97 Q 1,1 0.97,1 
+    L 0.20,1 Q 0.17,1 0.17,0.97 
+    L 0.17,0.88 Q 0.17,0.85 0.14,0.85 
+    L 0.03,0.85 Q 0,0.85 0,0.82 
+    Z
+  `;
+
   return (
-    <main className="min-h-screen p-0 md:p-4 lg:p-8 flex items-center justify-center font-sans ">
-      <div className="relative w-full max-w-[1400px] mx-auto ">
+    <main className="min-h-screen  p-0 lg:p-6 flex items-center justify-center font-sans overflow-hidden">
+      <div className="relative w-full max-w-[1400px] mx-auto">
+        
         {/* =========================================
-            1. SVG DEFINITION (Hidden helper for shape)
+            1. HEADER (Sits in the Top Tab Area)
            ========================================= */}
+        <div className="lg:absolute top-0 left-0 w-full z-50 px-2">
+            <Header />
+        </div>
 
         {/* =========================================
-            2. MAIN WRAPPER
+            2. SVG DEFINITION
            ========================================= */}
-        {/* 
-            Change: Added 'relative' and 'min-h'. 
-            On Desktop (lg), height is fixed/compact. 
-            On Mobile, it grows with content.
-        */}
-        <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 min-h-[1000px] lg:h-[1000px] rounded-[50px] overflow-hidden ">
+        <svg className="absolute w-0 h-0 hidden lg:block">
+          <defs>
+            <clipPath id="hero-rounded-clip" clipPathUnits="objectBoundingBox">
+              <path d={HERO_SHAPE_PATH} />
+            </clipPath>
+          </defs>
+        </svg>
+
+        {/* =========================================
+            3. MAIN WRAPPER
+           ========================================= */}
+        <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 min-h-[00px] lg:h-[850px]">
+          
           {/* =========================================
-              3. BACKGROUND LAYER (The Clipped Image)
+              4. BACKGROUND LAYER (Clipped)
              ========================================= */}
-          {/* 
-              Desktop: 'absolute inset-0' (Sits behind everything, fixed size)
-              Mobile: 'absolute inset-0' (Covers background, but content sits on top via z-index)
-          */}
-          <div className="col-span-1 lg:col-span-12 absolute inset-0 w-full h-full z-0">
-            {/* The Shape Container */}
+          <div className="col-span-1 lg:col-span-12 absolute inset-0 w-full h-full z-0 filter drop-shadow-2xl">
             <div
               className="w-full h-full relative bg-black"
               style={{
-                // We apply the clip-path only on Large screens to prevent mobile weirdness,
-                // or we can keep it if the mobile content is positioned safely.
-                // Here I keep it consistent but ensure mobile content has padding.
-                clipPath: "url(#hero-clip)",
+                clipPath: "url(#hero-rounded-clip)",
               }}
             >
-              {/* Image */}
+              {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
                   src="/images/heroBg.jpg"
                   alt="London Street"
                   className="w-full h-full object-cover opacity-80"
                   fill
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent/40 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent/30 z-10" />
               </div>
 
-              {/* 2. RED SLASH IMAGE (Right Side) */}
-              {/* Replaced the CSS Div with your Image */}
-              <div className="absolute right-0 top-0 bottom-0 w-full h-full z-10">
+              {/* Red Slash Image */}
+              <div className="absolute left-14 right-0 top-0 bottom-0 w-full h-full z-10">
                 <Image
-                  src="/images/red-slash.png" // Save your uploaded image with this name
+                  src="/images/red-slash.png"
                   alt="Red Decoration"
                   fill
-                  className="object-fill" // Ensures it stretches to cover the area perfectly without cutting
+                  className="object-fill"
                   priority
                 />
               </div>
-
-              {/* Blue Dotted Line (Desktop Only) */}
-              <svg className="absolute inset-0 w-full h-full z-20 pointer-events-none hidden xl:block">
-                <path
-                  d="M 580 500 Q 800 500 1020 500"
-                  fill="none"
-                  stroke="#3b82f6"
-                  strokeWidth="2"
-                  strokeDasharray="6 6"
-                  className="opacity-50"
-                />
-                <circle
-                  cx="580"
-                  cy="500"
-                  r="4"
-                  fill="#3b82f6"
-                  className="opacity-80"
-                />
-              </svg>
+              
             </div>
           </div>
 
           {/* =========================================
-              4. CONTENT LAYER (Text, Form, Header)
+              5. CONTENT LAYER
              ========================================= */}
-          {/* 
-              CRITICAL FIX: 
-              - Mobile: 'relative' (So it stacks and pushes layout down, preventing overlap)
-              - Desktop (lg): 'absolute inset-0' (So it overlays the image perfectly like your old structure)
-          */}
-          <div className="col-span-1 lg:col-span-12 relative lg:absolute lg:inset-0 z-40 w-full h-full pointer-events-none">
-            {/* Enable pointer events for children */}
-            <div className="pointer-events-auto w-full h-full flex flex-col">
-              {/* Header */}
-              <Header />
-
+          <div className="col-span-1 lg:col-span-12 relative z-40 w-full h-full pointer-events-none">
+            <div className="pointer-events-auto w-full h-full flex flex-col pt-22 lg:pt-22">
+              
               {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 h-full px-4 lg:px-16 pb-10 lg:pb-32 gap-12 lg:gap-0 mt-10 lg:mt-0">
-                {/* LEFT SIDE: Text + Contact Widget */}
-                <div className="flex flex-col justify-center pl-0 lg:pl-12 pt-0 lg:pt-0">
-                  <h1 className="text-4xl lg:text-[4rem] font-bold text-white leading-[1.05] mb-6 lg:mb-8 tracking-tight text-center lg:text-left">
+              <div className="grid grid-cols-1 lg:grid-cols-2 h-full px-4 lg:px-16 gap-12 lg:gap-0 pb-20">
+                
+                {/* LEFT SIDE: Text */}
+                <div className="flex flex-col justify-center pl-0 lg:pl-12 text-center lg:text-left relative">
+                  <h1 className="text-4xl lg:text-[4rem] font-bold text-white leading-[1.05] mb-6 tracking-tight">
                     Your Gateway To <br />
                     <span className="text-[#9F0507]">Stress-Free</span> Travel
                   </h1>
-                  <p className="text-gray-300 text-sm lg:text-lg max-w-xl leading-relaxed mb-10 lg:mb-16 font-light text-center lg:text-left">
-                    Reliable And Efficient Transportation Solutions For Modern
-                    Travelers. Get A Ride To Or From The Airport In Luxury.
+                  <p className="text-gray-300 text-sm lg:text-lg max-w-xl leading-relaxed mb-6 font-light">
+                    Reliable And Efficient Transportation Solutions For Modern Travelers. Get A Ride To Or From The Airport In Luxury.
                   </p>
-
-                  {/* Contact Widget */}
-                  {/* On Desktop: It sits in the "cutout" space naturally. On Mobile: It stacks. */}
-                  <div className="flex flex-col items-center lg:items-start justify-end z-20 relative">
-                    <div className="bg-[#1A1A1A] text-white rounded-[30px] p-8 space-y-6 w-full max-w-[300px] shadow-2xl">
-                      <div className="flex items-center gap-4">
-                        <div className="p-3 rounded-full border border-gray-600 text-gray-300">
-                          <Phone size={20} />
-                        </div>
-                        <div className="text-sm flex flex-col font-medium">
-                          <span className="text-gray-400">
-                            UK: +44 2080504059
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="p-3 rounded-full border border-gray-600 text-gray-300">
-                          <MapPin size={20} />
-                        </div>
-                        <div className="text-sm text-gray-400 leading-snug">
-                          <p>82 Bath Rd, London UB3</p>
-                          <p>5AN, United Kingdom</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 {/* RIGHT SIDE: Form */}
-                <div className="flex flex-col justify-center items-center lg:items-end h-full pr-0 lg:pr-4 pb-10 lg:pb-0">
-                  <div className="bg-white rounded-[35px] p-8 w-full max-w-[420px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                    {/* Form Header */}
+                <div className="flex flex-col justify-center items-center lg:items-end pr-0 lg:pr-4">
+                  <form className="bg-white rounded-[35px] p-8 w-full max-w-[420px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                    {/* Header */}
                     <div className="flex justify-center mb-8 mt-2">
                       <div className="flex items-center gap-3">
                         <div className="relative">
-                          <CalendarDays
-                            className="text-[#bf1515] w-12 h-12"
-                            strokeWidth={1.5}
-                          />
+                          <CalendarDays className="text-[#bf1515] w-12 h-12" strokeWidth={1.5} />
                           <div className="absolute -right-1 -bottom-1 bg-[#bf1515] rounded-full p-0.5 border-2 border-white">
                             <Plus className="text-white w-3 h-3" />
                           </div>
                         </div>
                         <div className="flex flex-col leading-[0.9]">
-                          <span className="text-[2rem] font-black text-[#1a1a1a] tracking-tighter">
-                            BOOK
-                          </span>
-                          <span className="text-[2rem] font-black text-[#bf1515] tracking-tighter">
-                            ONLINE
-                          </span>
+                          <span className="text-[2rem] font-black text-[#1a1a1a] tracking-tighter">BOOK</span>
+                          <span className="text-[2rem] font-black text-[#bf1515] tracking-tighter">ONLINE</span>
                         </div>
                       </div>
                     </div>
@@ -171,9 +166,10 @@ export default function HeroSection() {
 
                       <div className="relative group">
                         <div className="relative">
-                          <select className="w-full border-b-2 border-gray-200 py-3 text-sm font-semibold text-gray-800 focus:outline-none focus:border-[#bf1515] bg-transparent appearance-none">
-                            <option>Pick Up Address</option>
-                          </select>
+                          <input 
+                            type="text" name="pickup" value={formData.pickup} onChange={handleChange} placeholder="Pick Up Address"
+                            className="w-full border-b-2 border-gray-200 py-3 text-sm font-semibold text-gray-800 placeholder-gray-800 focus:outline-none focus:border-[#bf1515] bg-transparent"
+                          />
                           <ChevronDown className="absolute right-10 top-3 text-gray-400 w-4 h-4 pointer-events-none" />
                         </div>
                         <div className="absolute -right-[1px] top-1 w-7 h-7 flex items-center justify-center">
@@ -183,9 +179,10 @@ export default function HeroSection() {
 
                       <div className="relative group">
                         <div className="relative">
-                          <select className="w-full border-b-2 border-gray-200 py-3 text-sm font-semibold text-gray-400 focus:outline-none focus:border-[#bf1515] bg-transparent appearance-none">
-                            <option>Via (Optional)</option>
-                          </select>
+                          <input 
+                            type="text" name="via" value={formData.via} onChange={handleChange} placeholder="Via (Optional)"
+                            className="w-full border-b-2 border-gray-200 py-3 text-sm font-semibold text-gray-400 placeholder-gray-400 focus:outline-none focus:border-[#bf1515] bg-transparent"
+                          />
                           <ChevronDown className="absolute right-10 top-3 text-gray-400 w-4 h-4 pointer-events-none" />
                         </div>
                         <div className="absolute -right-[1px] top-3 w-7 h-7 flex items-center justify-center">
@@ -197,9 +194,10 @@ export default function HeroSection() {
 
                       <div className="relative group">
                         <div className="relative">
-                          <select className="w-full border-b-2 border-gray-200 py-3 text-sm font-semibold text-gray-800 focus:outline-none focus:border-[#bf1515] bg-transparent appearance-none">
-                            <option>Drop Off Address</option>
-                          </select>
+                          <input 
+                            type="text" name="dropoff" value={formData.dropoff} onChange={handleChange} placeholder="Drop Off Address"
+                            className="w-full border-b-2 border-gray-200 py-3 text-sm font-semibold text-gray-800 placeholder-gray-800 focus:outline-none focus:border-[#bf1515] bg-transparent"
+                          />
                           <ChevronDown className="absolute right-10 top-3 text-gray-400 w-4 h-4 pointer-events-none" />
                         </div>
                         <div className="absolute -right-[1px] top-4 w-7 h-7 flex items-center justify-center">
@@ -209,26 +207,47 @@ export default function HeroSection() {
                     </div>
 
                     {/* Buttons */}
-
                     <div className="flex gap-4">
-                      <Link href="/login" className="flex-1  bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white py-4 rounded-full font-bold text-xs tracking-widest shadow-xl hover:bg-[#750a0a] transition-all flex items-center justify-center">
-                      <button  className="flex items-center justify-center">
-                        LOG IN
-                      </button>
+                      <Link href="/login" className="flex-1">
+                        <button type="button" className="w-full bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white py-4 rounded-full font-bold text-xs tracking-widest shadow-xl hover:bg-[#750a0a] transition-all flex items-center justify-center">
+                          LOG IN
+                        </button>
                       </Link>
-                      <Link href="/airportTransfers"
-                      className="flex-1 bg-white border border-[#750a0a] text-[#750a0a] py-4 rounded-full font-bold text-xs tracking-widest hover:bg-gray-50 transition-all flex items-center justify-center">
                       <button 
-                      herf="/airportTransfer">
-                        QUOTE NOW
+                        onClick={handleSubmit} disabled={loading}
+                        className="flex-1 bg-white border border-[#750a0a] text-[#750a0a] py-4 rounded-full font-bold text-xs tracking-widest hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
+                      >
+                        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "QUOTE NOW"}
                       </button>
-                      </Link>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
+
+              {/* C. Contact Widget (Sits in the Bottom-Left Cutout) */}
+              <div className="absolute bottom-0 left-0 w-[16%] h-[14%] hidden lg:flex items-center justify-start z-50  pb-2">
+                 <div className="bg-[#1A1A1A] text-white rounded-[25px] p-5 w-full h-full shadow-2xl border border-gray-800 flex flex-col justify-center gap-3">
+                    <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-full border border-gray-600 text-gray-300">
+                            <Phone size={14} />
+                        </div>
+                        <span className="text-[10px] font-medium text-gray-300">UK: +44 2080504059</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-full border border-gray-600 text-gray-300">
+                            <MapPin size={14} />
+                        </div>
+                        <div className="text-[10px] text-gray-300 leading-tight">
+                            <p>82 Bath Rd, London UB3</p>
+                            <p>5AN, United Kingdom</p>
+                        </div>
+                    </div>
+                 </div>
+              </div>
+
             </div>
           </div>
+
         </div>
       </div>
     </main>

@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-[#EBEBEB] py-20 px-4 md:px-8 font-sans overflow-hidden">
+    <section className="bg-[#EBEBEB] my-6 lg:my-10 px-4 md:px-8 font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         
         {/* 1. HEADER */}
