@@ -14,7 +14,7 @@ export default function BabySeatSection() {
       
   {/* 1. YOUR BACKGROUND IMAGE */}
   <Image 
-    src="/images/BabySeatPicture.jpg" 
+    src="/images/BabySeatPIcture.jpg" 
     height={600} 
     width={1600} 
     alt="Baby Seat Background" 
