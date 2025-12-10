@@ -13,7 +13,7 @@ const Button = ({ variant = "primary", className = "", children, ...props }) => 
   
   // 1. Base styles shared by both buttons (Shape, Font, Animation)
   const baseStyles = 
-    "rounded-full font-bold text-xs tracking-widest uppercase px-8 py-4 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 flex items-center justify-center";
+    "rounded-full font-bold text-xs tracking-widest uppercase px-7 py-4 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 flex items-center justify-center";
 
   // 2. Specific styles for each variant
   const variants = {

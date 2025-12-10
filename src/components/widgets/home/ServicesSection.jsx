@@ -61,13 +61,13 @@ export default function ServicesSection() {
   const visibleServices = getVisibleServices();
 
   return (
-    <section className="bg-[#EBEBEB] my-6 lg:my-10 px-4 md:px-8 font-sans ">
+    <section className=" my-6 lg:my-10 px-4 md:px-8 font-sans ">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Header */}
         <div className="mb-16">
           <h2 className="text-5xl lg:text-[4rem] font-bold text-[#1A1A1A] mb-6 tracking-tight">
-            Our <span className="text-[#900c0c]">Services</span>
+            Our <span className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-gray-600 text-sm lg:text-[15px] font-medium leading-relaxed max-w-2xl">
             Discover How Our Services Ensure A Smooth, Reliable, And Enjoyable Airport Transfer Experience.

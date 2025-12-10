@@ -49,7 +49,7 @@ export default function FeaturesListSection() {
         {/* 1. Header Section */}
         <div className="mb-16">
           <h2 className="text-5xl lg:text-[3.5rem] font-bold text-[#1A1A1A] mb-6 tracking-tight">
-            Our <span className="text-[#900c0c]">Features</span>
+            Our <span className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] bg-clip-text text-transparent">Features</span>
           </h2>
           <p className="text-gray-500 text-xs lg:text-[13px] leading-relaxed max-w-2xl font-medium">
             Experience Seamless Transportation With Our Reliable Taxi Service. From Airport Transfers To City Tours, We Offer Convenient And Affordable Travel Solutions.

@@ -82,18 +82,7 @@ export default function HeroBackground({ children }) {
                 />
               </div>
 
-              {/* Dotted Line Decoration */}
-              <svg className="absolute inset-0 w-full h-full z-20 pointer-events-none hidden xl:block">
-                <path
-                  d="M 580 500 Q 800 500 1020 500"
-                  fill="none"
-                  stroke="#3b82f6"
-                  strokeWidth="2"
-                  strokeDasharray="6 6"
-                  className="opacity-50"
-                />
-                <circle cx="580" cy="500" r="4" fill="#3b82f6" className="opacity-80" />
-              </svg>
+             
 
             </div>
           </div>

@@ -35,7 +35,7 @@ export default function WhyChooseUsSection() {
         {/* 1. Section Header */}
         <div className="mb-14">
           <h2 className="text-5xl lg:text-[4rem] font-bold text-[#1A1A1A] mb-8 tracking-tight">
-            Why <span className="text-[#900c0c]">Choose Us?</span>
+            Why <span className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] bg-clip-text text-transparent">Choose Us?</span>
           </h2>
           <p className="text-gray-600 text-sm lg:text-[15px] leading-relaxed max-w-6xl font-medium text-justify lg:text-left">
             Experience The Perfect Balance Of Affordability And Excellence In

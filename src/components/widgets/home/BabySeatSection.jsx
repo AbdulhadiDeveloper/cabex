@@ -1,6 +1,7 @@
 
 import React from "react";  
 import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
   { value: "+20", label: "Years Of Experience" },
@@ -30,7 +31,7 @@ export default function BabySeatSection() {
     <div className="max-w-xl relative">
       
       {/* Headings */}
-      <div className="mb-6">
+      <div>
         <h2 className="text-4xl sm:text-5xl lg:text-[4rem] leading-[1.1] text-white tracking-wide">
           <span className="font-light">Baby Seat</span> <span className="font-bold">Services</span>
         </h2>
@@ -40,12 +41,31 @@ export default function BabySeatSection() {
       </div>
 
       {/* Subtext */}
-      <p className="text-gray-300 text-sm lg:text-[1.05rem] mb-32 font-normal tracking-wide leading-relaxed">
+      <p className="text-gray-300 text-sm lg:text-[1.05rem] font-normal tracking-wide leading-relaxed">
         Ensuring Comfort And Safety For Every Passenger, Every Time.
       </p>
 
+      {/* buttons */}
+       <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mx-3 my-8 mb-24">
+                    {/* Primary Button */}
+                    <Link href="/login">
+                      <button
+                        type="button"
+                        className="px-10 py-4 rounded-full bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white font-bold text-sm shadow-xl hover:shadow-red-900/40 transition-all transform hover:-translate-y-1"
+                      >
+                        Book Your Ride
+                      </button>
+                    </Link>
+                    <Link
+                      href="/airportTransfers"
+                      className="px-10 py-4 rounded-full bg-white border border-[#360505] text-[#750a0a] font-bold text-sm hover:bg-gray-50 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1"
+                    >
+                      <button className="">View Services</button>
+                    </Link>
+                  </div>
+
       {/* Stats Section with Top Border */}
-      <div className="flex flex-wrap items-center gap-8 lg:gap-16 border border-gray-300/50 p-3 w-full">
+      <div className="flex flex-wrap items-center gap-8 lg:gap-16 border border-gray-300/50 p-3 w-full mt-3 ">
         <div className="flex flex-col">
           <span className="text-2xl lg:text-[1.75rem] font-bold text-white mb-1">
             +20
