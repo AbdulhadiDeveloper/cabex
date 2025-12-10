@@ -52,7 +52,7 @@ export default function HeroSection() {
         {/* =========================================
             1. HEADER (Sits in the Top Tab Area)
            ========================================= */}
-        <div className="lg:absolute top-0 left-0 w-full z-50 px-2">
+        <div className="lg:absolute top-0 left-0 w-full z-50 ">
           <Header />
         </div>
 

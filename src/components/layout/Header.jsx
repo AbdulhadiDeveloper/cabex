@@ -43,18 +43,27 @@ export default function Header() {
         { name: "Cruise Transfers", href: "/services/cruise-transfers" },
       ]
     },
-    { name: "Cover Areas", href: "/coverareas" },
+    { name: "Cover Areas", href: "/coverAreas" },
     { name: "Special Offers", href: "/special-offers" },
     { name: "Contact", href: "/contactus" },
   ];
 
   return (
-    <nav className="relative z-50 flex justify-between items-center">
+    <nav className="relative z-50 flex justify-between items-center bg-[#1A1A1A] lg:bg-[#ffffff00]">
       {/* Logo */}
       <Link href="/">
-        <div className="text-white text-3xl font-bold tracking-tighter leading-none flex flex-col pb-2 pl-2">
+        <div className="hidden lg:flex text-3xl font-bold tracking-tighter leading-none flex-col pb-2 pl-2">
           <Image
             src="/images/logo.png"
+            width={100}
+            height={100}
+            alt="logo"
+            className="object-contain"
+          />
+        </div>
+        <div className="flex lg:hidden text-3xl font-bold tracking-tighter leading-none flex-col pb-2 pl-2">
+          <Image
+            src="/images/logo2.png"
             width={100}
             height={100}
             alt="logo"
@@ -117,11 +126,14 @@ export default function Header() {
       </div>
 
       {/* Login Button */}
+      <div className="hidden lg:flex pr-4">
+
       <Link href="/login">
         <Button variant="primary">
           Log In
         </Button>
       </Link>
+      </div>
       
     </nav>
   );
