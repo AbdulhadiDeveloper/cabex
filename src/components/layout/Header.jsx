@@ -3,12 +3,18 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown } from "lucide-react";
+
+import { useState } from "react"; // Hook
+import { Menu, X, ChevronDown } from "lucide-react"; // Icons
 // Import the custom Button component
 import Button from "@/components/shared/ui/Button.jsx";
 import Image from "next/image";
 
 export default function Header() {
+  
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(null); // To toggle accordions
+
   const pathname = usePathname();
 
   // Define navigation items with the Submenu
@@ -38,7 +44,7 @@ export default function Header() {
       href: "/services", 
       hasDropdown: true,
       submenu: [
-        { name: "Airport Transfers", href: "/services/airportTransfers" }, // Points to Airport Listing
+        { name: "Airport Transfers", href: "/airportTransfers" }, // Points to Airport Listing
         { name: "Railway Transfers", href: "/services/railway-transfers" },
         { name: "Cruise Transfers", href: "/services/cruise-transfers" },
       ]
@@ -49,6 +55,7 @@ export default function Header() {
   ];
 
   return (
+    <>
     <nav className="relative z-50 flex justify-between items-center bg-[#1A1A1A] lg:bg-[#ffffff00]">
       {/* Logo */}
       <Link href="/">
@@ -134,7 +141,110 @@ export default function Header() {
         </Button>
       </Link>
       </div>
+
+      {/* --- MOBILE HAMBURGER BUTTON (VISIBLE ONLY ON MOBILE) --- */}
+<button 
+  onClick={() => setIsMobileMenuOpen(true)}
+  className="lg:hidden text-white bg-white/10 p-2.5 rounded-full border border-white/20 hover:bg-[#9C0E0F] transition-all shadow-md"
+  aria-label="Open Menu"
+>
+  <Menu size={24} />
+</button>
       
     </nav>
+    {/* --- MOBILE MENU DRAWER --- */}
+{/* 1. Backdrop Overlay */}
+<div 
+  className={`fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+    isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+  }`}
+  onClick={() => setIsMobileMenuOpen(false)} // Click outside to close
+></div>
+
+{/* 2. Side Panel */}
+<div 
+  className={`fixed top-0 right-0 z-[101] w-[85%] max-w-[320px] h-full bg-[#1A1A1A] border-l border-[#360505] shadow-2xl flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] lg:hidden ${
+    isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  
+  {/* Header: Title + Close Button */}
+  <div className="flex items-center justify-between p-6 border-b border-white/10">
+    <span className="text-xl font-bold text-white tracking-tight">
+        Menu
+    </span>
+    <button 
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-400 hover:text-[#9C0E0F] hover:bg-white/10 p-2 rounded-full transition-all"
+    >
+      <X size={24} />
+    </button>
+  </div>
+
+  {/* Scrollable Links Area */}
+  <div className="flex-1 overflow-y-auto py-4 px-4 space-y-2">
+    
+    {navItems.map((item, index) => {
+        const isSubmenuOpen = mobileSubmenuOpen === index;
+        const hasSubmenu = item.hasDropdown && item.submenu;
+
+        return (
+            <div key={item.name} className="border-b border-white/5 last:border-0 pb-1">
+                
+                {/* Main Link / Trigger */}
+                <div className="flex items-center justify-between">
+                    <Link 
+                        href={item.href}
+                        onClick={() => !hasSubmenu && setIsMobileMenuOpen(false)}
+                        className="flex-1 py-3 text-[15px] font-medium text-gray-200 hover:text-[#9C0E0F] transition-colors"
+                    >
+                        {item.name}
+                    </Link>
+                    
+                    {/* Expand Icon for Submenu */}
+                    {hasSubmenu && (
+                        <button 
+                            onClick={() => setMobileSubmenuOpen(isSubmenuOpen ? null : index)}
+                            className={`p-3 text-gray-400 transition-transform duration-300 ${isSubmenuOpen ? "rotate-180 text-[#9C0E0F]" : ""}`}
+                        >
+                            <ChevronDown size={18} />
+                        </button>
+                    )}
+                </div>
+
+                {/* Submenu Accordion */}
+                <div 
+                    className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#111] rounded-lg ${isSubmenuOpen ? "max-h-[500px] mt-1 mb-2" : "max-h-0"}`}
+                >
+                    {item.submenu?.map((subItem, idx) => (
+                        <Link 
+                            key={idx}
+                            href={subItem.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="flex items-center gap-3 px-4 py-3 text-sm text-gray-400 hover:text-white border-b border-white/5 last:border-0 hover:bg-[#9C0E0F]/10 transition-colors"
+                        >
+                            <div className="w-1.5 h-1.5 bg-[#9C0E0F] rounded-full shrink-0"></div>
+                            {subItem.name}
+                        </Link>
+                    ))}
+                </div>
+
+            </div>
+        );
+    })}
+
+  </div>
+
+  {/* Footer: Action Button */}
+  <div className="p-6 border-t border-white/10 bg-black/20">
+    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+        <button className="w-full py-4 rounded-full bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white font-bold text-xs tracking-widest shadow-xl">
+            LOG IN
+        </button>
+    </Link>
+  </div>
+
+</div>
+    </>
   );
 }

@@ -93,7 +93,7 @@ export default function BlogSection() {
 
                         {/* 3. READ MORE BUTTON (Fills the Bottom-Right Void) */}
                         <div className="absolute bottom-0 right-0 w-[45%] h-[17%] z-30">
-                            <button className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white shadow-lg hover:shadow-red-900/40 border border-transparent w-full h-full  text-[11px] font-md uppercase tracking-widest  transition-colors flex items-center justify-center rounded-full ml-2 mt-1">
+                            <button className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white shadow-lg hover:shadow-red-900/40 border border-transparent w-full h-full  text-[11px] font-md uppercase tracking-widest  transition-colors flex items-center justify-center rounded-full ml-2 mt-1 transform hover:-translate-y-1">
                                 Read More
                             </button>
                         </div>
