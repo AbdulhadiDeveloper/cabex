@@ -29,7 +29,7 @@ export default function HeroBackground({ children }) {
         {/* =========================================
             1. HEADER (Sits on top of everything)
            ========================================= */}
-        <div className="absolute top-0 left-0 w-full z-50 px-2">
+        <div className="absolute top-0 left-0 w-full z-50 ">
             <Header />
         </div>
 

@@ -36,7 +36,7 @@ export default function DynamicHero({
       <div className="relative w-full max-w-[1400px] mx-auto">
         
         {/* HEADER */}
-        <div className="lg:absolute top-0 left-0 w-full z-50 px-2">
+        <div className="lg:absolute top-0 left-0 w-full z-50 ">
             <Header />
         </div>
 
