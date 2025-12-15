@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import NewsletterSection from "@/components/shared/ui/NewsletterSection";
+
 // Social Media Data
 // Make sure to save your PNGs in 'public/images/social/' with these names
 const socialIcons = [
@@ -15,28 +17,38 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181A1F] text-white pt-48 pb-8 overflow-hidden font-sans relative">
+    <footer className="bg-[#181A1F] text-white pt-48 pb-8 overflow-visible font-sans relative">
+      
+      {/* NEWSLETTER SECTION (Floating on top) */}
+      <div className="absolute top-0 w-full -translate-y-1/2 z-50">
+        <NewsletterSection />
+      </div>
       
       {/* =========================================
           BACKGROUND WATERMARKS
          ========================================= */}
-      {/* Left Wheel */}
-      <div className="absolute hidden md:block bg-white bg-clip-text text-transparent top-[-50px] left-[-200px] w-[500px] h-[600px] opacity-[0.7] pointer-events-none">
-         <Image 
-            src="/images/wheelImage1.png" 
-            alt="Watermark"
-            fill
-            className="object-contain rotate-[-15deg]"
-         />
-      </div>
-      {/* Right Wheel */}
-      <div className="absolute hidden md:block bg-white bg-clip-text text-transparent top-[-50px] right-[-260px] w-[600px] h-[600px] opacity-[0.7] pointer-events-none">
-         <Image 
-            src="/images/wheelImage2.png"
-            alt="Watermark"
-            fill
-            className="object-contain rotate-[15deg]"
-         />
+      {/* =========================================
+          BACKGROUND WATERMARKS (Clipped)
+         ========================================= */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Left Wheel */}
+        <div className="absolute hidden md:block bg-white bg-clip-text text-transparent top-[-50px] left-[-200px] w-[500px] h-[600px] opacity-[0.7]">
+           <Image 
+              src="/images/wheelImage1.png" 
+              alt="Watermark"
+              fill
+              className="object-contain rotate-[-15deg]"
+           />
+        </div>
+        {/* Right Wheel */}
+        <div className="absolute hidden md:block bg-white bg-clip-text text-transparent top-[-50px] right-[-260px] w-[600px] h-[600px] opacity-[0.7]">
+           <Image 
+              src="/images/wheelImage2.png"
+              alt="Watermark"
+              fill
+              className="object-contain rotate-[15deg]"
+           />
+        </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">

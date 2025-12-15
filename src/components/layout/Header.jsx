@@ -44,7 +44,7 @@ export default function Header() {
       href: "/services", 
       hasDropdown: true,
       submenu: [
-        { name: "Airport Transfers", href: "/airportTransfers" }, // Points to Airport Listing
+        { name: "Airport Transfers", href: "/services/airport-transfers" }, // Points to Airport Listing
         { name: "Railway Transfers", href: "/services/railway-transfers" },
         { name: "Cruise Transfers", href: "/services/cruise-transfers" },
       ]
@@ -133,7 +133,7 @@ export default function Header() {
       </div>
 
       {/* Login Button */}
-      <div className="hidden lg:flex pr-4">
+      <div className="hidden lg:flex pr-2">
 
       <Link href="/login">
         <Button variant="primary">

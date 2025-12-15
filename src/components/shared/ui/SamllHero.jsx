@@ -19,12 +19,12 @@ const HERO_SHAPE_PATH = `
   Z
 `;
 
-export default function InnerHero({ children }) {
+export default function InnerHero({ word1, word2, backgroundImage, children }) {
   return (
-    <div className="w-full bg-[#EBEBEB] p-4 md:p-6 lg:p-8 flex justify-center font-sans">
+    <div className="w-full p-4 md:p-6 lg:p-8 flex justify-center font-sans overflow-hidden">
       
       {/* MAIN WRAPPER */}
-      <div className="relative w-full max-w-[1400px] mx-auto min-h-[450px] lg:h-[500px]">
+      <div className="relative w-full max-w-[1400px] mx-auto min-h-[500px] lg:h-[600px] shadow-2xl rounded-[40px] overflow-hidden">
         
         {/* =========================================
             1. SVG DEFINITION (Hidden)
@@ -38,9 +38,9 @@ export default function InnerHero({ children }) {
         </svg>
 
         {/* =========================================
-            2. BACKGROUND LAYER (Clipped)
+            2. BACKGROUND LAYER (Clipped) - NOW with Fallback
            ========================================= */}
-        <div className="absolute inset-0 w-full h-full z-0 filter drop-shadow-2xl">
+        <div className="absolute inset-0 w-full h-full z-0">
             
             {/* The Clipped Container */}
             <div 
@@ -50,18 +50,18 @@ export default function InnerHero({ children }) {
                 {/* A. City Image */}
                 <div className="absolute inset-0">
                     <Image
-                        src="/images/heroBg.jpg" // Using your consistent background
+                        src={backgroundImage || "/images/heroBg.jpg"} 
                         alt="Background"
                         fill
                         className="object-cover opacity-80"
                         priority
                     />
                     {/* Dark Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent/30 z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />
                 </div>
 
                 {/* B. Red Slash Image */}
-                <div className="absolute right-0 top-0 bottom-0 w-full h-full z-10">
+                <div className="absolute right-0 top-0 bottom-0 w-full h-full z-10 pointer-events-none opacity-80">
                     <Image 
                         src="/images/red-slash.png"
                         alt="Red Decoration"
@@ -70,31 +70,32 @@ export default function InnerHero({ children }) {
                         priority
                     />
                 </div>
-
-                {/* C. Dotted Line Decoration */}
-                <svg className="absolute bottom-0 left-0 w-[300px] h-[200px] z-20 opacity-30 pointer-events-none">
-                    <path 
-                        d="M -20,180 Q 80,180 120,120 T 250,50" 
-                        fill="none" 
-                        stroke="white" 
-                        strokeWidth="3" 
-                        strokeDasharray="8 8"
-                    />
-                </svg>
             </div>
         </div>
 
         {/* =========================================
             3. CONTENT LAYER
            ========================================= */}
-        <div className="relative z-30 w-full h-full flex flex-col">
+        <div className="relative z-30 w-full h-full flex flex-col pointer-events-none">
             
-            {/* A. Header (Client Component) */}
-            <Header />
+            {/* A. Header (Client Component) - Make sure pointer events are enabled for header interactions */}
+            <div className="pointer-events-auto">
+                <Header />
+            </div>
 
-            {/* B. Children Content (Centered Title) */}
-            <div className="flex-1 flex items-center justify-center pb-12 w-full px-4 pt-20 lg:pt-24">
-                {children}
+            {/* B. Centered Title OR Children */}
+            <div className="flex-1 flex flex-col items-center justify-center pb-20 w-full px-4 pt-20 lg:pt-24 text-center">
+                {children ? (
+                    // Render Children if passed (e.g. from CoverAreas Page)
+                    <div className="relative z-10">
+                        {children}
+                    </div>
+                ) : (
+                    // Default Prop-based Title (e.g. from Dynamic Slug Pages)
+                    <h1 className="text-5xl lg:text-7xl font-extrabold text-white tracking-tight drop-shadow-lg">
+                        {word1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF0000] to-[#990000]">{word2}</span>
+                    </h1>
+                )}
             </div>
 
         </div>

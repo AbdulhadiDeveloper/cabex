@@ -29,10 +29,11 @@ export default function DynamicHero({
       <span className="text-[#9F0507]">Stress-Free</span> Travel
     </>
   ), 
-  description = "Reliable And Efficient Transportation Solutions For Modern Travelers. Get A Ride To Or From The Airport In Luxury." 
+  description = "Reliable And Efficient Transportation Solutions For Modern Travelers. Get A Ride To Or From The Airport In Luxury.",
+  backgroundImage
 }) {
   return (
-    <main className="bg-white p-0 lg:p-6 flex items-center justify-center font-sans overflow-hidden">
+    <main className="bg-white p-0 lg:p-6 flex items-center justify-center font-sans overflow-hidden w-full">
       <div className="relative w-full max-w-[1400px] mx-auto">
         
         {/* HEADER */}
@@ -50,7 +51,7 @@ export default function DynamicHero({
         </svg>
 
         {/* MAIN WRAPPER */}
-        <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 min-h-[00px] lg:h-[850px]">
+        <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 min-h-[600px] lg:h-[850px] overflow-hidden">
           
           {/* BACKGROUND LAYER */}
           <div className="col-span-1 lg:col-span-12 absolute inset-0 w-full h-full z-0 filter drop-shadow-2xl">
@@ -60,7 +61,7 @@ export default function DynamicHero({
             >
               <div className="absolute inset-0">
                 <Image
-                  src="/images/heroBg.jpg"
+                  src={backgroundImage || "/images/heroBg.jpg"}
                   alt="Background"
                   className="w-full h-full object-cover opacity-80"
                   fill

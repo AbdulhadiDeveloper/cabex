@@ -4,7 +4,7 @@ export default function NewsletterSection() {
   return (
     // relative z-20 ensures it sits ON TOP of the footer
     // -mb-24 creates the overlap effect (pulls the footer up by 6rem)
-    <section className="relative z-20 px-4 md:px-8 font-sans -mb-[120px] pointer-events-none">
+    <section className="px-4 md:px-8 font-sans pointer-events-none">
       <div className="max-w-[1100px] mx-auto pointer-events-auto">
         
         {/* RED CONTAINER */}

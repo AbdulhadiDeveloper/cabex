@@ -3,7 +3,7 @@ import InnerHero from "@/components/shared/ui/SamllHero";
 import DefinitionSection from '@/components/widgets/termsAndConditions/DefinitionSection';
 import TermsListSection from '@/components/widgets/termsAndConditions/TermsListSection';
 import ReadyToBookSection from '@/components/shared/ui/ReadyToBookSection';
-import NewsletterSection from '@/components/shared/ui/NewsletterSection';
+
 
 
 function TermsPage() {
@@ -24,7 +24,7 @@ function TermsPage() {
           <ReadyToBookSection />
           </div>
 
-          <NewsletterSection/>
+
     </>
   )
 }

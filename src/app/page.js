@@ -1,4 +1,4 @@
-import NewsletterSection from "@/components/shared/ui/NewsletterSection";
+
 import AboutSection from "@/components/shared/ui/AboutSection";
 import BabySeatSection from "@/components/widgets/home/BabySeatSection";
 import BlogSection from "@/components/widgets/home/BlogSection";
@@ -12,7 +12,7 @@ import ReadyToBookSection from "@/components/shared/ui/ReadyToBookSection";
 import ServicesSection from "@/components/widgets/home/ServicesSection";
 import TestimonialsSection from "@/components/shared/ui/TestimonialsSection";
 import WhyChooseUsSection from "@/components/widgets/home/WhyChooseUsSection";
-import ReviewSection from "@/components/widgets/home/ReviewSection"
+import ReviewSection from "@/components/shared/ui/ReviewSection"
 import TopDestinationsSection from "@/components/widgets/home/TopDestinationsSection";
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
    <TestimonialsSection />
    <ReadyToBookSection />
    <FAQSection />
-   <NewsletterSection />
+
    </>
    
   );

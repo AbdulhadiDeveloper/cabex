@@ -1,4 +1,4 @@
-import NewsletterSection from '@/components/shared/ui/NewsletterSection'
+
 import InnerHero from '@/components/shared/ui/SamllHero'
 import FAQAccordionSection from '@/components/widgets/FAQs/FAQAccordionSection'
 import FaqIntroSection from '@/components/widgets/FAQs/FaqIntroSection'
@@ -15,7 +15,7 @@ function page() {
     </InnerHero>
     <FaqIntroSection/>
     <FAQAccordionSection/>
-    <NewsletterSection/>
+
     </>
   )
 }

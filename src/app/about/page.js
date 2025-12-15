@@ -4,7 +4,7 @@ import AboutSection from "@/components/shared/ui/AboutSection";
 import OurStorySection from "@/components/widgets/about/OurStorySection";
 import WhatSetsUsApartSection from "@/components/widgets/about/WhatSetsUsApartSection";
 import MissionVisionSection from "@/components/widgets/about/MissionVisionSection";
-import NewsletterSection from "@/components/shared/ui/NewsletterSection";
+
 
 export const metadata = {
   title: "About Us | Airport Driven",
@@ -27,7 +27,7 @@ export default function AboutPage() {
       <OurStorySection/>
       <WhatSetsUsApartSection/>
       <MissionVisionSection/>
-      <NewsletterSection/>
+
 
       
       

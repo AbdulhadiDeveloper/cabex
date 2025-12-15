@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Plane } from "lucide-react";
+import TopDestinationsSection from "../home/TopDestinationsSection";
 
 // Default Airport Codes for the Bottom Strip
 const DEFAULT_AIRPORTS = [
@@ -12,6 +13,37 @@ const DEFAULT_AIRPORTS = [
   { code: "STN", name: "Stansted", slug: "stansted" },
   { code: "LTN", name: "Luton", slug: "luton" },
 ];
+
+
+
+// Enhanced Data with Images
+const AIRPORT_CARDS = [
+  { 
+    code: "LHR", 
+    name: "Heathrow", 
+    slug: "heathrow",
+    image: "/images/london.jpg" 
+  },
+  { 
+    code: "LGW", 
+    name: "Gatwick", 
+    slug: "gatwick",
+    image: "/images/london.jpg" 
+  },
+  { 
+    code: "STN", 
+    name: "Stansted", 
+    slug: "stansted",
+    image: "/images/london.jpg" 
+  },
+  { 
+    code: "LTN", 
+    name: "Luton", 
+    slug: "luton",
+    image: "/images/london.jpg" 
+  },
+];
+
 
 export default function AirportDestinationsSection({ 
   title = "Popular Journeys",
@@ -103,33 +135,7 @@ export default function AirportDestinationsSection({
         {/* =========================================
             PART 2: AIRPORT NAVIGATOR (Static/Dynamic List)
            ========================================= */}
-        <div className="bg-gradient-to-r from-[#9C0E0F] to-[#360505] rounded-[35px] py-10 px-8 lg:px-16 flex flex-col xl:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-            
-            {/* Watermark Decoration */}
-            <div className="absolute right-[-50px] top-[-50px] opacity-5 pointer-events-none">
-                <Plane size={300} strokeWidth={0.5} />
-            </div>
-
-            <div className="text-center xl:text-left z-10">
-                <h3 className="text-2xl font-bold text-white mb-2">We Cover All Major Airports</h3>
-                <p className="text-gray-400 text-sm">Fixed prices and reliable pickups from all London terminals.</p>
-            </div>
-
-            {/* Airport Chips */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full xl:w-auto z-10">
-                {otherAirports.map((apt, idx) => (
-                    <Link 
-                        key={idx} 
-                        href={`/airports/${apt.slug}`}
-                        className=" bg-[#151515] hover:bg-[#9C0E0F] transition-colors duration-300 rounded-[15px] p-4 flex flex-col items-center justify-center text-center cursor-pointer group h-[100px] w-full min-w-[140px]"
-                    >
-                        <h4 className="text-white font-bold text-lg">{apt.code}</h4>
-                        <span className="text-[10px] text-gray-400 group-hover:text-white/80">{apt.name}</span>
-                    </Link>
-                ))}
-            </div>
-
-        </div>
+        <TopDestinationsSection/>
 
       </div>
     </section>

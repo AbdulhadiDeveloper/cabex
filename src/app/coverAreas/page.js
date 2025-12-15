@@ -4,7 +4,7 @@ import { Plane, MapPin, ArrowRight, Phone } from "lucide-react";
 
 // Components
 import InnerHero from '@/components/shared/ui/SamllHero'
-import NewsletterSection from "@/components/shared/ui/NewsletterSection";
+
 
 // IMPORT DATA HERE
 import { ukAirports } from "@/data/ukAirports"; 
@@ -64,7 +64,7 @@ export default function CoverAreaPage() {
                             {group.airports.map((airport, idx) => (
                                 <Link 
                                     key={idx} 
-                                    href={`/airports/${airport.slug}`}
+                                    href={`/coverAreas/${airport.slug}`}
                                     className="group"
                                 >
                                     <div className="bg-white hover:bg-gradient-to-r hover:from-[#9C0E0F] hover:to-[#360505] border border-gray-200 hover:border-transparent rounded-[20px] p-6 shadow-sm hover:shadow-[0_10px_30px_rgba(156,14,15,0.3)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-between">
@@ -176,9 +176,7 @@ export default function CoverAreaPage() {
       </div>
     </section>
 
-      <div className="relative">
-        <NewsletterSection />
-      </div>
+
 
     </main>
   );

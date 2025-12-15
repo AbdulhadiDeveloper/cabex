@@ -8,7 +8,7 @@ import { MapPin, CheckCircle, ShieldCheck, Star, Car } from "lucide-react";
 // Imports
 import { airportsData } from "@/data/airport";
 import DynamicHero from "@/components/widgets/airports/DynamicHero";
-import NewsletterSection from "@/components/shared/ui/NewsletterSection";
+
 
 // --- NEW IMPORTS ---
 import FleetTableSection from "@/components/widgets/airports/FleetTableSection";
@@ -21,6 +21,7 @@ import AirportServicesGrid from "@/components/widgets/airports/AirportServicesGr
 import TestimonialsSection from "@/components/shared/ui/TestimonialsSection"; // <--- Reusing existing
 import FleetSection from "@/components/shared/ui/FleetSection";
 import AirportDestinationsSection from "@/components/widgets/airports/AirportDestinationsSection";
+import ReviewSection from "@/components/shared/ui/ReviewSection";
 
 export default function AirportDynamicPage({ params }) {
   const airport = airportsData.find((item) => item.slug === params.slug);
@@ -117,6 +118,9 @@ export default function AirportDynamicPage({ params }) {
         destinations={airport.dynamicDestinations}
       />
 
+      {/* review section */}
+      <ReviewSection/>
+
       {/* 6. FARE TABLE */}
       <FareTableSection
         airportName={airport.name}
@@ -135,9 +139,7 @@ export default function AirportDynamicPage({ params }) {
       <ContactCTASection airportName={airport.name} />
 
       {/* 10. FOOTER */}
-      <div className="relative mt-20">
-        <NewsletterSection />
-      </div>
+
     </main>
   );
 }

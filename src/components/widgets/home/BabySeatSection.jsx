@@ -46,7 +46,7 @@ export default function BabySeatSection() {
       </p>
 
       {/* buttons */}
-       <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mx-3 my-8 mb-24">
+       <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mx-3 my-8 mb-8">
                     {/* Primary Button */}
                     <Link href="/login">
                       <button
