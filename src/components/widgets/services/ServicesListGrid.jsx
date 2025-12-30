@@ -11,8 +11,8 @@ const servicesData = [
     title: "Airport Transfers",
     description: "Reliable, fixed-price transfers to and from all major UK airports including Heathrow, Gatwick, and Stansted. Includes flight monitoring and 60 minutes free waiting time.",
     icon: Plane,
-    link: "/airports",
-    image: "/images/airport-transfer/map.png" 
+    link: "/services/airport-transfers",
+    image: "/images/airport-transfer/heathrow.jpeg" 
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const servicesData = [
     description: "Seamless connections between major train stations (St Pancras, Euston, Victoria) and your final destination. Don't haul luggage on the tube; let us drive you.",
     icon: Train,
     link: "/services/railway-transfers",
-    image: "/images/destinations/london.jpg"
+    image: "/images/airport-transfer/gatwick.jpg"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const servicesData = [
     description: "Start your holiday in style. Luxury chauffeur transfers to Southampton, Dover, and Tilbury ports. Ample luggage space for your ocean voyage.",
     icon: Ship,
     link: "/services/cruise-transfers",
-    image: "/images/destinations/brighton.jpg"
+    image: "/images/airport-transfer/stansted.jpg"
   }
 ];
 

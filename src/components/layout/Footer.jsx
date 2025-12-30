@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import NewsletterSection from "@/components/shared/ui/NewsletterSection";
+import MegaLinksSection from "@/components/layout/MegaLinksSection";
 
 // Social Media Data
 // Make sure to save your PNGs in 'public/images/social/' with these names
@@ -17,7 +18,11 @@ const socialIcons = [
 
 export default function Footer() {
   return (
+    <>
+    <MegaLinksSection />
     <footer className="bg-[#181A1F] text-white pt-48 pb-8 overflow-visible font-sans relative">
+
+       
       
       {/* NEWSLETTER SECTION (Floating on top) */}
       <div className="absolute top-0 w-full -translate-y-1/2 z-50">
@@ -148,5 +153,6 @@ export default function Footer() {
 
       </div>
     </footer>
+    </>
   );
 }

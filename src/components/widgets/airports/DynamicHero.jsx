@@ -242,12 +242,12 @@ export default function DynamicHero({
 
                     <div className="flex gap-4">
                       <Link href="/login" className="flex-1">
-                        <button type="button" className="w-full bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white hover:shadow-red-900/40 border border-transparent py-4 rounded-full font-bold text-xs tracking-widest shadow-xl transition-all flex items-center justify-center">
+                        <button type="button" className="w-full bg-gradient-to-r from-[#9C0E0F] to-[#360505] text-white hover:shadow-red-900/40 border border-transparent py-4 rounded-full font-bold text-xs tracking-widest shadow-xl transition-all flex items-center justify-center transform hover:-translate-y-1">
                           LOG IN
                         </button>
                       </Link>
                       <Link href="/airportTransfers" className="flex-1">
-                        <button type="button" className="w-full bg-white border border-[#750a0a] text-[#750a0a] py-4 rounded-full font-bold text-xs tracking-widest hover:bg-gray-50 shadow-md hover:shadow-lg transition-all flex items-center justify-center">
+                        <button type="button" className="w-full bg-white border border-[#750a0a] text-[#750a0a] py-4 rounded-full font-bold text-xs tracking-widest hover:bg-gray-50 shadow-md hover:shadow-lg transition-all flex items-center justify-center transform hover:-translate-y-1">
                           QUOTE NOW
                         </button>
                       </Link>

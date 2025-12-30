@@ -23,7 +23,7 @@ export default function LogisticsInfoSection({
 
             {/* Left: Icon & Label */}
             <div className="flex-shrink-0 flex items-center gap-4">
-                <div className="w-16 h-16 rounded-[20px] bg-[#2A2A2A] flex items-center justify-center shadow-lg text-[#9C0E0F]">
+                <div className="w-16 h-16 rounded-[20px] bg-[#F5F5F5] flex items-center justify-center shadow-lg text-[#9C0E0F]">
                     <Info size={32} />
                 </div>
                 <div className="lg:hidden">

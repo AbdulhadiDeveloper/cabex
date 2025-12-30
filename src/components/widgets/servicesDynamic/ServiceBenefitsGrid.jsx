@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { Train, Ship, Plane, Clock, User, Briefcase, MapPin } from "lucide-react";
+import { 
+  Train, Ship, Plane, Clock, User, Briefcase, MapPin,
+  ShieldCheck, Heart, Star, CalendarDays, Info, Car, 
+  GraduationCap, Truck, Hotel, Coffee, BatteryCharging,
+  Eye, Baby
+} from "lucide-react";
 
 // Mapping string names to components
 const ICON_MAP = {
@@ -11,7 +16,20 @@ const ICON_MAP = {
   "Train": Train,
   "Ship": Ship,
   "Briefcase": Briefcase,
-  "MapPin": MapPin
+  "MapPin": MapPin,
+  "ShieldCheck": ShieldCheck,
+  "Heart": Heart,
+  "Star": Star,
+  "CalendarDays": CalendarDays,
+  "Info": Info,
+  "Car": Car,
+  "GraduationCap": GraduationCap,
+  "Truck": Truck,
+  "Hotel": Hotel,
+  "Coffee": Coffee,
+  "BatteryCharging": BatteryCharging,
+  "Eye": Eye,
+  "Baby": Baby
 };
 
 export default function ServiceBenefitsGrid({ benefits = [], title }) {
