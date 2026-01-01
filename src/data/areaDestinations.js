@@ -1,6 +1,6 @@
 export const areaDestinationsData = [
   {
-    slug: "heathrow",
+    slug: "heathrow-airport-taxi",
     name: "Heathrow Airport",
     
     // --- SECTION 1: HERO TITLES ---

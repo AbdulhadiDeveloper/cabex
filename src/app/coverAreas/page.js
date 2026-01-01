@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Plane, MapPin, ArrowRight, Phone } from "lucide-react";
 
 // Components
-import InnerHero from '@/components/shared/ui/SamllHero'
+import DynamicHero from "@/components/widgets/airports/DynamicHero";
+import AlphabeticalAreasSection from "@/components/widgets/coverAreas(Areas)/AlphabeticalAreasSection.jsx"; // The A-Z Grid
 
 
 // IMPORT DATA HERE
@@ -18,18 +19,15 @@ export default function CoverAreaPage() {
   return (
     <main className="w-full bg-[#EBEBEB] min-h-screen">
       
-      {/* 1. HERO SECTION */}
-      <InnerHero>
-        <div className="text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight capitalize mb-4">
-                <span className="text-white">Areas We </span>
+     <DynamicHero 
+        title={
+            <>
+                Areas We <br />
                 <span className="text-[#9C0E0F]">Cover</span>
-            </h1>
-            <p className="text-gray-300 text-lg font-light max-w-2xl mx-auto">
-                From Major Terminals to Private Airfields, We Ensure You Arrive in Style Anywhere in the UK.
-            </p>
-        </div>
-      </InnerHero>
+            </>
+        }
+        description="From Major Terminals to Private Airfields, We Ensure You Arrive in Style Anywhere in the UK."
+      />
 
       {/* 2. MAIN CONTENT AREA */}
       <section className="py-20 px-4 md:px-8 font-sans">
@@ -109,6 +107,11 @@ export default function CoverAreaPage() {
         </div>
       </section>
 
+
+      {/* 2. ALPHABETICAL AREAS GRID (A-Z) */}
+      <AlphabeticalAreasSection />
+
+
       {/* 3. MAP DECORATION */}
       <section className="w-full pb-20 pt-10 px-4 md:px-8 font-sans">
       <div className="max-w-[1400px] mx-auto">
@@ -176,7 +179,7 @@ export default function CoverAreaPage() {
       </div>
     </section>
 
-
+    
 
     </main>
   );

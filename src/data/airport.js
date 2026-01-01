@@ -89,7 +89,12 @@ export const airportsData = [
     image: "/images/london.jpg",
     slug: "oxford"
   }
-]
+],
+
+ nearbyAreas: [
+      "Windsor-airport-taxi", "Slough-airport-taxi", "Hounslow-airport-taxi", "Uxbridge-airport-taxi", "Staines-airport-taxi", "Feltham-airport-taxi",
+      "Hayes-airport-taxi", "Egham-airport-taxi", "West Drayton-airport-taxi", "Ascot-airport-taxi", "Bracknell-airport-taxi", "Maidenhead-airport-taxi"
+    ]
   },
 
   // 2. GATWICK

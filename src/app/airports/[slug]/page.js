@@ -22,6 +22,8 @@ import TestimonialsSection from "@/components/shared/ui/TestimonialsSection"; //
 import FleetSection from "@/components/shared/ui/FleetSection";
 import AirportDestinationsSection from "@/components/widgets/airports/AirportDestinationsSection";
 import ReviewSection from "@/components/shared/ui/ReviewSection";
+import NearbyAreasGrid from "@/components/widgets/airports/NearbyAreasGrid";
+
 
 export default function AirportDynamicPage({ params }) {
   const airport = airportsData.find((item) => item.slug === params.slug);
@@ -106,6 +108,12 @@ export default function AirportDynamicPage({ params }) {
       {/* fleet section */}
       <FleetSection />
 
+      
+      <NearbyAreasGrid 
+    airportName={airport.name} 
+    areas={airport.nearbyAreas} // Pass the dynamic list
+/>
+
       {/* 3. AIRPORT SERVICES GRID (New - Features) */}
       <AirportServicesGrid />
 
@@ -126,6 +134,7 @@ export default function AirportDynamicPage({ params }) {
         airportName={airport.name}
         routes={airport.fareRoutes}
       />
+
 
       {/* 7. DYNAMIC CONTENT (Rich Text from Data) */}
       <AirportContentSection content={airport.content} />
